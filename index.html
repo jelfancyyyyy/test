@@ -3,235 +3,459 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tu Nombre — Desarrollador de Software</title>
-<meta name="description" content="Portafolio de Tu Nombre, desarrollador de software.">
+<title>Enena Launcher — Guía de instalación</title>
+<meta name="description" content="Descargá e instalá Enena Launcher: el launcher oficial de Enena Studio para jugar High Life 2.">
+<link rel="icon" type="image/png" href="./logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --sky-top: #0e1631;
+    --sky-mid: #0a101f;
+    --void: #050709;
+    --panel: rgba(255,255,255,0.045);
+    --panel-strong: rgba(255,255,255,0.08);
+    --border: rgba(255,255,255,0.1);
+    --mint: #46e6a6;
+    --mint-soft: rgba(70,230,166,0.22);
+    --amber: #ff9a5a;
+    --amber-soft: rgba(255,154,90,0.22);
+    --text: #f1f5f3;
+    --text-muted: #93a29c;
+    --text-faint: #5c6863;
+    --radius: 18px;
+    --radius-sm: 11px;
+    --ease: cubic-bezier(0.16,1,0.3,1);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  html { scroll-behavior:smooth; }
+
+  body {
+    font-family:'Inter',sans-serif;
+    background: linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 38%, var(--void) 100%);
+    color: var(--text);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  body::before {
+    content:'';
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 42px 42px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 0%, transparent 75%);
+  }
+
+  a { color:inherit; text-decoration:none; }
+
+  ::selection { background:var(--mint-soft); color:var(--text); }
+
+  :focus-visible {
+    outline:2px solid var(--mint);
+    outline-offset:3px;
+    border-radius:4px;
+  }
+
+  .wrap { max-width:1080px; margin:0 auto; padding:0 28px; position:relative; z-index:1; }
+
+  /* ============ NAV ============ */
+
+  .nav {
+    position:sticky; top:0; z-index:40;
+    backdrop-filter:blur(16px);
+    background:rgba(5,7,9,0.55);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-inner {
+    max-width:1080px; margin:0 auto; padding:14px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .brand { display:flex; align-items:center; gap:10px; }
+  .brand img { width:30px; height:30px; }
+  .brand span {
+    font-family:'Sora',sans-serif; font-weight:700; font-size:16px; letter-spacing:0.01em;
+  }
+  .nav-links { display:flex; gap:28px; }
+  .nav-links a {
+    font-family:'Sora',sans-serif; font-size:13px; font-weight:600;
+    color:var(--text-muted); transition:color .2s var(--ease);
+  }
+  .nav-links a:hover { color:var(--text); }
+  .nav-cta {
+    background:var(--panel-strong); border:1px solid var(--border);
+    padding:8px 16px; border-radius:8px; font-family:'Sora',sans-serif;
+    font-size:12.5px; font-weight:600; color:var(--text);
+    transition:background .2s var(--ease), border-color .2s var(--ease);
+  }
+  .nav-cta:hover { background:rgba(255,255,255,0.14); border-color:rgba(255,255,255,0.22); }
+
+  @media (max-width:720px){ .nav-links { display:none; } }
+
+  /* ============ HERO ============ */
+
+  .hero {
+    padding:120px 0 100px;
+    text-align:center;
+    position:relative;
+  }
+
+  .hero-logo {
+    width:104px; height:104px;
+    margin:0 auto 30px;
+    filter: drop-shadow(0 0 46px rgba(70,230,166,0.35));
+  }
+
+  .eyebrow {
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--mint);
+    background:var(--mint-soft); border:1px solid rgba(70,230,166,0.3);
+    padding:6px 14px; border-radius:100px; margin-bottom:26px;
+  }
+  .eyebrow::before {
+    content:''; width:6px; height:6px; border-radius:50%;
+    background:var(--mint); box-shadow:0 0 8px var(--mint);
+  }
+
+  .hero h1 {
+    font-family:'Sora',sans-serif; font-weight:800;
+    font-size:clamp(34px, 6vw, 58px);
+    letter-spacing:-0.02em; line-height:1.08;
+    max-width:760px; margin:0 auto 20px;
+  }
+  .hero h1 em {
+    font-style:normal;
+    background:linear-gradient(120deg, var(--mint), #8ff5cd);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+
+  .hero p {
+    font-size:16.5px; color:var(--text-muted); max-width:520px;
+    margin:0 auto 40px; line-height:1.65;
+  }
+
+  .hero-actions {
+    display:flex; gap:14px; justify-content:center; flex-wrap:wrap;
+  }
+
+  .btn {
+    font-family:'Sora',sans-serif; font-weight:700; font-size:14.5px;
+    padding:14px 26px; border-radius:12px; cursor:pointer;
+    display:inline-flex; align-items:center; gap:10px;
+    transition:transform .18s var(--ease), box-shadow .2s var(--ease), filter .2s var(--ease);
+    border:1px solid transparent;
+  }
+  .btn-primary {
+    background:linear-gradient(135deg, var(--amber), #ff7a3d);
+    color:#1a0e04;
+    box-shadow:0 14px 34px -12px rgba(255,154,90,0.55);
+  }
+  .btn-primary:hover { transform:translateY(-2px); filter:brightness(1.06); }
+  .btn-ghost {
+    background:var(--panel-strong); border-color:var(--border); color:var(--text);
+  }
+  .btn-ghost:hover { background:rgba(255,255,255,0.13); transform:translateY(-2px); }
+
+  .hero-note {
+    margin-top:18px; font-family:'JetBrains Mono',monospace;
+    font-size:11.5px; color:var(--text-faint);
+  }
+
+  /* ============ TRUST STRIP ============ */
+
+  .trust {
+    display:flex; justify-content:center; gap:44px; flex-wrap:wrap;
+    padding:36px 0 90px; border-bottom:1px solid var(--border);
+  }
+  .trust-item {
+    display:flex; align-items:center; gap:9px;
+    font-family:'Sora',sans-serif; font-size:12.5px; font-weight:600;
+    color:var(--text-muted);
+  }
+  .trust-item .dot { width:6px; height:6px; border-radius:50%; background:var(--mint); }
+
+  /* ============ SECTION HEADERS ============ */
+
+  .section { padding:110px 0; }
+  .section-tag {
+    font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--mint);
+    letter-spacing:0.06em; margin-bottom:14px;
+  }
+  .section h2 {
+    font-family:'Sora',sans-serif; font-weight:800; font-size:clamp(26px,4vw,36px);
+    letter-spacing:-0.01em; margin-bottom:14px; max-width:560px;
+  }
+  .section-sub {
+    color:var(--text-muted); font-size:15px; max-width:520px; line-height:1.6;
+  }
+
+  /* ============ INSTALL STEPS (flight path signature) ============ */
+
+  .install-track { position:relative; margin-top:70px; }
+
+  .flight-path {
+    position:absolute; left:35px; top:14px; bottom:14px; width:2px;
+    background:linear-gradient(180deg, var(--mint) 0%, rgba(70,230,166,0.15) 100%);
+  }
+  @media (max-width:640px){ .flight-path{ left:23px; } }
+
+  .step {
+    position:relative; display:flex; gap:30px; padding-bottom:56px;
+  }
+  .step:last-child { padding-bottom:0; }
+
+  .step-marker {
+    flex-shrink:0; width:72px; height:72px; border-radius:50%;
+    background:var(--sky-mid); border:2px solid var(--mint);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Sora',sans-serif; font-weight:800; font-size:22px; color:var(--mint);
+    box-shadow:0 0 0 8px rgba(70,230,166,0.06);
+    z-index:1;
+  }
+  @media (max-width:640px){
+    .step-marker{ width:48px; height:48px; font-size:16px; }
+    .step { gap:18px; }
+  }
+
+  .step-body {
+    background:var(--panel); border:1px solid var(--border); border-radius:var(--radius);
+    padding:26px 28px; flex:1; backdrop-filter:blur(10px);
+  }
+  .step-body h3 {
+    font-family:'Sora',sans-serif; font-size:18px; font-weight:700; margin-bottom:8px;
+  }
+  .step-body p { color:var(--text-muted); font-size:14.5px; line-height:1.65; margin-bottom:14px; }
+  .step-body p:last-child { margin-bottom:0; }
+
+  .code-line {
+    font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--mint);
+    background:rgba(0,0,0,0.35); border:1px solid var(--border);
+    padding:11px 14px; border-radius:9px; display:block; margin-top:10px;
+    overflow-x:auto; white-space:nowrap;
+  }
+
+  .callout {
+    display:flex; gap:10px; align-items:flex-start;
+    background:var(--amber-soft); border:1px solid rgba(255,154,90,0.3);
+    border-radius:var(--radius-sm); padding:12px 14px; margin-top:14px;
+    font-size:13px; color:#ffd4b3; line-height:1.55;
+  }
+  .callout b { color:#fff; }
+
+  /* ============ FAQ ============ */
+
+  .faq-list { display:flex; flex-direction:column; gap:10px; margin-top:44px; }
+
+  details {
+    background:var(--panel); border:1px solid var(--border); border-radius:var(--radius-sm);
+    overflow:hidden;
+  }
+  summary {
+    font-family:'Sora',sans-serif; font-weight:600; font-size:14.5px;
+    padding:18px 22px; cursor:pointer; list-style:none;
+    display:flex; justify-content:space-between; align-items:center; gap:16px;
+  }
+  summary::-webkit-details-marker { display:none; }
+  summary::after {
+    content:'+'; font-size:20px; color:var(--mint); flex-shrink:0;
+    transition:transform .25s var(--ease);
+  }
+  details[open] summary::after { transform:rotate(45deg); }
+  details[open] summary { border-bottom:1px solid var(--border); }
+
+  .faq-answer {
+    padding:4px 22px 20px; color:var(--text-muted); font-size:14px; line-height:1.7;
+  }
+  .faq-answer code {
+    font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--mint);
+    background:rgba(70,230,166,0.1); padding:2px 6px; border-radius:5px;
+  }
+
+  /* ============ CTA BAND ============ */
+
+  .cta-band {
+    text-align:center; padding:100px 0;
+    border-top:1px solid var(--border);
+  }
+  .cta-band h2 {
+    font-family:'Sora',sans-serif; font-weight:800; font-size:clamp(24px,4vw,34px);
+    margin-bottom:16px;
+  }
+  .cta-band p { color:var(--text-muted); margin-bottom:34px; }
+
+  /* ============ FOOTER ============ */
+
+  footer {
+    border-top:1px solid var(--border); padding:36px 0;
+  }
+  .footer-inner {
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;
+  }
+  .footer-brand { display:flex; align-items:center; gap:8px; }
+  .footer-brand img { width:20px; height:20px; opacity:0.8; }
+  .footer-brand span { font-family:'Sora',sans-serif; font-size:12.5px; color:var(--text-faint); }
+  .footer-links { display:flex; gap:22px; }
+  .footer-links a { font-size:12.5px; color:var(--text-muted); transition:color .2s var(--ease); }
+  .footer-links a:hover { color:var(--mint); }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior:auto; }
+    * { transition:none !important; }
+  }
+</style>
 </head>
 <body>
 
-<div class="grain"></div>
-
-<header class="nav">
-  <a href="#top" class="nav__mark">TN<span>.</span></a>
-  <nav class="nav__links">
-    <a href="#proyectos">Proyectos</a>
-    <a href="#experiencia">Experiencia</a>
-    <a href="#habilidades">Habilidades</a>
-    <a href="#contacto">Contacto</a>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#top" class="brand">
+        <img src="./logo.png" alt="Enena Studio">
+        <span>ENENA LAUNCHER</span>
+      </a>
+      <div class="nav-links">
+        <a href="#instalacion">Instalación</a>
+        <a href="#faq">Preguntas frecuentes</a>
+        <a href="https://github.com/jelfancyyyyy/Enena-Modpack" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <a href="https://github.com/jelfancyyyyy/Enena-Modpack/releases/latest" target="_blank" rel="noopener" class="nav-cta">Descargar</a>
+    </div>
   </nav>
-  <a href="#contacto" class="nav__cta">Hablemos</a>
-  <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
-    <span></span><span></span>
-  </button>
-</header>
 
-<main id="top">
+  <div id="top"></div>
 
-  <!-- HERO -->
-  <section class="hero">
-    <p class="eyebrow">// portafolio.dev</p>
-    <h1 class="hero__title">
-      Hola, soy <span class="ink">Tu Nombre</span>.<br>
-      Construyo software con
-      <span class="hero__typed" id="typed"></span><span class="cursor">|</span>
-    </h1>
-    <p class="hero__lead">
-      Desarrollador de software enfocado en crear productos rápidos, claros y
-      bien construidos — del backend a la interfaz.
-    </p>
-    <div class="hero__actions">
-      <a href="#proyectos" class="btn btn--solid">Ver proyectos</a>
-      <a href="/cv.pdf" class="btn btn--ghost">Descargar CV</a>
+  <header class="hero wrap">
+    <img src="./logo.png" alt="Enena Studio" class="hero-logo">
+    <span class="eyebrow">Enena Studio</span>
+    <h1>Volá directo a <em>High Life 2</em>, sin escalas.</h1>
+    <p>Enena Launcher instala el modpack, verifica Java y arranca el juego por vos. Iniciá sesión, apretá jugar, y listo.</p>
+    <div class="hero-actions">
+      <a href="https://github.com/jelfancyyyyy/Enena-Modpack/releases/latest" target="_blank" rel="noopener" class="btn btn-primary">
+        Descargar para Windows
+      </a>
+      <a href="#instalacion" class="btn btn-ghost">Ver guía de instalación</a>
     </div>
-  </section>
+    <p class="hero-note">Windows 10/11 · Requiere Java 21+ (el launcher lo detecta o te avisa)</p>
+  </header>
 
-  <!-- ABOUT -->
-  <section class="about" id="sobre-mi">
-    <div class="about__label">
-      <span class="mono">01</span>
-      <span class="line"></span>
-      <span class="mono">sobre mí</span>
-    </div>
-    <p class="about__text">
-      Soy un desarrollador con enfoque en construir cosas que funcionan de
-      verdad: código legible, decisiones simples y atención a los detalles
-      que el usuario sí nota. Me interesa el diseño de sistemas, el
-      rendimiento y escribir interfaces que se sientan naturales.
-      Actualmente trabajo con
-      <strong>JavaScript / TypeScript, React y Node.js</strong>,
-      y disfruto aprender herramientas nuevas cuando resuelven un problema real.
-    </p>
-  </section>
+  <div class="trust wrap">
+    <div class="trust-item"><span class="dot"></span>Se actualiza solo</div>
+    <div class="trust-item"><span class="dot"></span>Login oficial de Microsoft</div>
+    <div class="trust-item"><span class="dot"></span>Descarga reanudable</div>
+    <div class="trust-item"><span class="dot"></span>Consola en vivo para errores</div>
+  </div>
 
-  <!-- SKILLS -->
-  <section class="skills" id="habilidades">
-    <div class="section__head">
-      <span class="mono">02</span>
-      <h2>Habilidades</h2>
-    </div>
-    <div class="skills__grid">
-      <div class="skills__group">
-        <h3 class="mono">frontend</h3>
-        <ul>
-          <li>JavaScript / TypeScript</li>
-          <li>React</li>
-          <li>HTML &amp; CSS</li>
-          <li>Accesibilidad web</li>
-        </ul>
+  <section class="section wrap" id="instalacion">
+    <div class="section-tag">// Guía de instalación</div>
+    <h2>De cero a jugando en tres pasos.</h2>
+    <p class="section-sub">No hace falta instalar Minecraft, Fabric ni los mods por separado. El launcher se encarga de todo eso apenas iniciás sesión.</p>
+
+    <div class="install-track">
+      <div class="flight-path"></div>
+
+      <div class="step">
+        <div class="step-marker">1</div>
+        <div class="step-body">
+          <h3>Descargá el instalador</h3>
+          <p>Bajá el archivo <code class="code-line" style="display:inline;padding:2px 6px;">Enena-Launcher-Setup.exe</code> desde la sección de descargas de arriba. Es el único archivo que necesitás.</p>
+          <div class="callout">
+            <span>⚠️</span>
+            <span><b>Windows va a mostrar un aviso de "Editor desconocido"</b> la primera vez — es normal, el launcher todavía no tiene firma digital. Hacé click en "Más información" → "Ejecutar de todas formas".</span>
+          </div>
+        </div>
       </div>
-      <div class="skills__group">
-        <h3 class="mono">backend</h3>
-        <ul>
-          <li>Node.js</li>
-          <li>APIs REST</li>
-          <li>PostgreSQL</li>
-          <li>Autenticación &amp; seguridad</li>
-        </ul>
+
+      <div class="step">
+        <div class="step-marker">2</div>
+        <div class="step-body">
+          <h3>Instalá y abrí el launcher</h3>
+          <p>Corré el instalador, elegí dónde instalarlo, y abrí Enena Launcher. Vas a ver la pantalla de inicio de sesión.</p>
+          <p>Elegí <b>Premium</b> si tenés una cuenta de Minecraft comprada (te va a abrir una ventana oficial de Microsoft), o <b>Offline</b> si querés entrar solo con un nombre de usuario.</p>
+        </div>
       </div>
-      <div class="skills__group">
-        <h3 class="mono">herramientas</h3>
-        <ul>
-          <li>Git &amp; GitHub</li>
-          <li>Docker</li>
-          <li>CI/CD</li>
-          <li>Testing (Jest)</li>
-        </ul>
+
+      <div class="step">
+        <div class="step-marker">3</div>
+        <div class="step-body">
+          <h3>Apretá Jugar</h3>
+          <p>El launcher va a verificar que tengas Java 21+, descargar el modpack la primera vez, e iniciar Minecraft automáticamente. La primera vez tarda más — las siguientes veces es casi instantáneo.</p>
+          <p>Podés seguir todo el proceso en tiempo real desde la pestaña <b>Consola</b> del launcher.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- PROJECTS -->
-  <section class="projects" id="proyectos">
-    <div class="section__head">
-      <span class="mono">03</span>
-      <h2>Proyectos</h2>
-    </div>
-    <div class="projects__grid">
+  <section class="section wrap" id="faq">
+    <div class="section-tag">// Soporte</div>
+    <h2>Preguntas frecuentes</h2>
+    <p class="section-sub">Lo que más nos preguntan en Discord, respondido acá para no hacerte esperar.</p>
 
-      <article class="project">
-        <div class="project__top">
-          <span class="mono project__tag">web app</span>
-          <div class="project__links">
-            <a href="#" aria-label="Ver código en GitHub">código</a>
-            <a href="#" aria-label="Ver demo en vivo">demo</a>
-          </div>
+    <div class="faq-list">
+      <details>
+        <summary>El launcher dice que necesito Java 21+ pero ya lo tengo instalado</summary>
+        <div class="faq-answer">
+          Puede que tengas otra versión de Java más vieja instalada antes en el PATH de Windows. Andá a <b>Ajustes</b> dentro del launcher y seleccioná manualmente el archivo <code>java.exe</code> (no <code>javaw.exe</code>) de tu instalación de Java 21, normalmente en <code>C:\Program Files\Eclipse Adoptium\jdk-21...\bin\</code>.
         </div>
-        <h3>Nombre del Proyecto Uno</h3>
-        <p>
-          Breve descripción del proyecto: qué problema resuelve, para quién,
-          y qué parte construiste tú. Una o dos líneas son suficientes.
-        </p>
-        <ul class="project__stack">
-          <li>React</li><li>Node.js</li><li>PostgreSQL</li>
-        </ul>
-      </article>
+      </details>
 
-      <article class="project">
-        <div class="project__top">
-          <span class="mono project__tag">api</span>
-          <div class="project__links">
-            <a href="#" aria-label="Ver código en GitHub">código</a>
-            <a href="#" aria-label="Ver demo en vivo">demo</a>
-          </div>
+      <details>
+        <summary>La descarga del modpack se traba o se corta</summary>
+        <div class="faq-answer">
+          El launcher reintenta la descarga automáticamente y retoma desde donde se cortó, así que no hace falta que hagas nada — solo esperá. Si tu antivirus está escaneando cada archivo mientras se instala, puede ir más lento; agregar la carpeta del juego a las exclusiones de Windows Defender ayuda bastante.
         </div>
-        <h3>Nombre del Proyecto Dos</h3>
-        <p>
-          Breve descripción del proyecto: qué problema resuelve, para quién,
-          y qué parte construiste tú. Una o dos líneas son suficientes.
-        </p>
-        <ul class="project__stack">
-          <li>TypeScript</li><li>Express</li><li>Docker</li>
-        </ul>
-      </article>
+      </details>
 
-      <article class="project">
-        <div class="project__top">
-          <span class="mono project__tag">mobile</span>
-          <div class="project__links">
-            <a href="#" aria-label="Ver código en GitHub">código</a>
-            <a href="#" aria-label="Ver demo en vivo">demo</a>
-          </div>
+      <details>
+        <summary>Minecraft no abre después de que termina de cargar</summary>
+        <div class="faq-answer">
+          Revisá la pestaña <b>Consola</b> del launcher — ahí vas a ver el error exacto (memoria insuficiente, versión de Java incorrecta, etc). Si no te queda claro, pasanos una captura de esa pantalla en el Discord de soporte.
         </div>
-        <h3>Nombre del Proyecto Tres</h3>
-        <p>
-          Breve descripción del proyecto: qué problema resuelve, para quién,
-          y qué parte construiste tú. Una o dos líneas son suficientes.
-        </p>
-        <ul class="project__stack">
-          <li>React Native</li><li>Firebase</li>
-        </ul>
-      </article>
+      </details>
 
+      <details>
+        <summary>¿Cómo cambio mi skin?</summary>
+        <div class="faq-answer">
+          Desde la pestaña <b>Skin</b> del launcher, con una cuenta Premium iniciada. Elegí una imagen PNG y subila directo — se actualiza en los servidores oficiales de Mojang.
+        </div>
+      </details>
+
+      <details>
+        <summary>¿El launcher se actualiza solo?</summary>
+        <div class="faq-answer">
+          Sí. Cada vez que abrís el launcher, revisa si hay una versión nueva y la instala sola en segundo plano. No necesitás volver a descargar nada manualmente.
+        </div>
+      </details>
     </div>
   </section>
 
-  <!-- EXPERIENCE (timeline) -->
-  <section class="experience" id="experiencia">
-    <div class="section__head">
-      <span class="mono">04</span>
-      <h2>Experiencia</h2>
-    </div>
-    <ol class="timeline">
-      <li class="commit">
-        <span class="commit__hash mono">a1c9f2e</span>
-        <div class="commit__body">
-          <div class="commit__meta">
-            <h3>Puesto actual — Empresa</h3>
-            <span class="mono">2024 — presente</span>
-          </div>
-          <p>Descripción breve de tus responsabilidades y logros principales en este puesto.</p>
-        </div>
-      </li>
-      <li class="commit">
-        <span class="commit__hash mono">7e41bd0</span>
-        <div class="commit__body">
-          <div class="commit__meta">
-            <h3>Puesto anterior — Empresa</h3>
-            <span class="mono">2022 — 2024</span>
-          </div>
-          <p>Descripción breve de tus responsabilidades y logros principales en este puesto.</p>
-        </div>
-      </li>
-      <li class="commit">
-        <span class="commit__hash mono">2b6f18a</span>
-        <div class="commit__body">
-          <div class="commit__meta">
-            <h3>Primer puesto — Empresa</h3>
-            <span class="mono">2021 — 2022</span>
-          </div>
-          <p>Descripción breve de tus responsabilidades y logros principales en este puesto.</p>
-        </div>
-      </li>
-    </ol>
+  <section class="cta-band wrap">
+    <h2>¿Listo para volar?</h2>
+    <p>Bajate el launcher y estás jugando en minutos.</p>
+    <a href="https://github.com/jelfancyyyyy/Enena-Modpack/releases/latest" target="_blank" rel="noopener" class="btn btn-primary">
+      Descargar Enena Launcher
+    </a>
   </section>
 
-  <!-- CONTACT -->
-  <section class="contact" id="contacto">
-    <div class="section__head">
-      <span class="mono">05</span>
-      <h2>Contacto</h2>
+  <footer>
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <img src="./logo.png" alt="Enena Studio">
+        <span>© Enena Studio</span>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/jelfancyyyyy/Enena-Modpack" target="_blank" rel="noopener">GitHub</a>
+        <a href="#instalacion">Instalación</a>
+        <a href="#faq">FAQ</a>
+      </div>
     </div>
-    <p class="contact__lead">
-      ¿Tienes un proyecto en mente o quieres conversar? Escríbeme.
-    </p>
-    <a href="mailto:tu@email.com" class="contact__email">tu@email.com</a>
-    <div class="contact__social">
-      <a href="#" target="_blank" rel="noopener">GitHub</a>
-      <a href="#" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="#" target="_blank" rel="noopener">Twitter / X</a>
-    </div>
-  </section>
+  </footer>
 
-</main>
-
-<footer class="footer">
-  <span>© <span id="year"></span> Tu Nombre.</span>
-  <span class="mono">hecho con html &amp; css</span>
-</footer>
-
-<script src="script.js"></script>
 </body>
 </html>
