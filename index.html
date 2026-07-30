@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tu Nombre — Desarrollador de Software</title>
+<meta name="description" content="Portafolio de Tu Nombre, desarrollador de software.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header class="nav">
+  <a href="#top" class="nav__mark">TN<span>.</span></a>
+  <nav class="nav__links">
+    <a href="#proyectos">Proyectos</a>
+    <a href="#experiencia">Experiencia</a>
+    <a href="#habilidades">Habilidades</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+  <a href="#contacto" class="nav__cta">Hablemos</a>
+  <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+    <span></span><span></span>
+  </button>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="eyebrow">// portafolio.dev</p>
+    <h1 class="hero__title">
+      Hola, soy <span class="ink">Tu Nombre</span>.<br>
+      Construyo software con
+      <span class="hero__typed" id="typed"></span><span class="cursor">|</span>
+    </h1>
+    <p class="hero__lead">
+      Desarrollador de software enfocado en crear productos rápidos, claros y
+      bien construidos — del backend a la interfaz.
+    </p>
+    <div class="hero__actions">
+      <a href="#proyectos" class="btn btn--solid">Ver proyectos</a>
+      <a href="/cv.pdf" class="btn btn--ghost">Descargar CV</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="sobre-mi">
+    <div class="about__label">
+      <span class="mono">01</span>
+      <span class="line"></span>
+      <span class="mono">sobre mí</span>
+    </div>
+    <p class="about__text">
+      Soy un desarrollador con enfoque en construir cosas que funcionan de
+      verdad: código legible, decisiones simples y atención a los detalles
+      que el usuario sí nota. Me interesa el diseño de sistemas, el
+      rendimiento y escribir interfaces que se sientan naturales.
+      Actualmente trabajo con
+      <strong>JavaScript / TypeScript, React y Node.js</strong>,
+      y disfruto aprender herramientas nuevas cuando resuelven un problema real.
+    </p>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="skills" id="habilidades">
+    <div class="section__head">
+      <span class="mono">02</span>
+      <h2>Habilidades</h2>
+    </div>
+    <div class="skills__grid">
+      <div class="skills__group">
+        <h3 class="mono">frontend</h3>
+        <ul>
+          <li>JavaScript / TypeScript</li>
+          <li>React</li>
+          <li>HTML &amp; CSS</li>
+          <li>Accesibilidad web</li>
+        </ul>
+      </div>
+      <div class="skills__group">
+        <h3 class="mono">backend</h3>
+        <ul>
+          <li>Node.js</li>
+          <li>APIs REST</li>
+          <li>PostgreSQL</li>
+          <li>Autenticación &amp; seguridad</li>
+        </ul>
+      </div>
+      <div class="skills__group">
+        <h3 class="mono">herramientas</h3>
+        <ul>
+          <li>Git &amp; GitHub</li>
+          <li>Docker</li>
+          <li>CI/CD</li>
+          <li>Testing (Jest)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="projects" id="proyectos">
+    <div class="section__head">
+      <span class="mono">03</span>
+      <h2>Proyectos</h2>
+    </div>
+    <div class="projects__grid">
+
+      <article class="project">
+        <div class="project__top">
+          <span class="mono project__tag">web app</span>
+          <div class="project__links">
+            <a href="#" aria-label="Ver código en GitHub">código</a>
+            <a href="#" aria-label="Ver demo en vivo">demo</a>
+          </div>
+        </div>
+        <h3>Nombre del Proyecto Uno</h3>
+        <p>
+          Breve descripción del proyecto: qué problema resuelve, para quién,
+          y qué parte construiste tú. Una o dos líneas son suficientes.
+        </p>
+        <ul class="project__stack">
+          <li>React</li><li>Node.js</li><li>PostgreSQL</li>
+        </ul>
+      </article>
+
+      <article class="project">
+        <div class="project__top">
+          <span class="mono project__tag">api</span>
+          <div class="project__links">
+            <a href="#" aria-label="Ver código en GitHub">código</a>
+            <a href="#" aria-label="Ver demo en vivo">demo</a>
+          </div>
+        </div>
+        <h3>Nombre del Proyecto Dos</h3>
+        <p>
+          Breve descripción del proyecto: qué problema resuelve, para quién,
+          y qué parte construiste tú. Una o dos líneas son suficientes.
+        </p>
+        <ul class="project__stack">
+          <li>TypeScript</li><li>Express</li><li>Docker</li>
+        </ul>
+      </article>
+
+      <article class="project">
+        <div class="project__top">
+          <span class="mono project__tag">mobile</span>
+          <div class="project__links">
+            <a href="#" aria-label="Ver código en GitHub">código</a>
+            <a href="#" aria-label="Ver demo en vivo">demo</a>
+          </div>
+        </div>
+        <h3>Nombre del Proyecto Tres</h3>
+        <p>
+          Breve descripción del proyecto: qué problema resuelve, para quién,
+          y qué parte construiste tú. Una o dos líneas son suficientes.
+        </p>
+        <ul class="project__stack">
+          <li>React Native</li><li>Firebase</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- EXPERIENCE (timeline) -->
+  <section class="experience" id="experiencia">
+    <div class="section__head">
+      <span class="mono">04</span>
+      <h2>Experiencia</h2>
+    </div>
+    <ol class="timeline">
+      <li class="commit">
+        <span class="commit__hash mono">a1c9f2e</span>
+        <div class="commit__body">
+          <div class="commit__meta">
+            <h3>Puesto actual — Empresa</h3>
+            <span class="mono">2024 — presente</span>
+          </div>
+          <p>Descripción breve de tus responsabilidades y logros principales en este puesto.</p>
+        </div>
+      </li>
+      <li class="commit">
+        <span class="commit__hash mono">7e41bd0</span>
+        <div class="commit__body">
+          <div class="commit__meta">
+            <h3>Puesto anterior — Empresa</h3>
+            <span class="mono">2022 — 2024</span>
+          </div>
+          <p>Descripción breve de tus responsabilidades y logros principales en este puesto.</p>
+        </div>
+      </li>
+      <li class="commit">
+        <span class="commit__hash mono">2b6f18a</span>
+        <div class="commit__body">
+          <div class="commit__meta">
+            <h3>Primer puesto — Empresa</h3>
+            <span class="mono">2021 — 2022</span>
+          </div>
+          <p>Descripción breve de tus responsabilidades y logros principales en este puesto.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contacto">
+    <div class="section__head">
+      <span class="mono">05</span>
+      <h2>Contacto</h2>
+    </div>
+    <p class="contact__lead">
+      ¿Tienes un proyecto en mente o quieres conversar? Escríbeme.
+    </p>
+    <a href="mailto:tu@email.com" class="contact__email">tu@email.com</a>
+    <div class="contact__social">
+      <a href="#" target="_blank" rel="noopener">GitHub</a>
+      <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="#" target="_blank" rel="noopener">Twitter / X</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <span>© <span id="year"></span> Tu Nombre.</span>
+  <span class="mono">hecho con html &amp; css</span>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
