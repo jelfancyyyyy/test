@@ -86,7 +86,7 @@
   .brand { display:flex; align-items:center; gap:10px; }
   .brand img { width:30px; height:30px; }
   .brand span { font-family:'Sora',sans-serif; font-weight:700; font-size:16px; letter-spacing:0.01em; }
-  .nav-links { display:flex; gap:28px; }
+  .nav-links { display:flex; gap:28px; align-items:center; }
   .nav-links a {
     font-family:'Sora',sans-serif; font-size:13px; font-weight:600;
     color:var(--text-muted); transition:color .2s var(--ease);
@@ -317,6 +317,14 @@
 
   .faq-answer { padding:4px 22px 20px; color:var(--text-muted); font-size:14px; line-height:1.7; }
 
+  /* ============ KO-FI WIDGET CONTAINER STYLING ============ */
+  .kofi-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+  }
+
   /* ============ CTA BAND ============ */
 
   .cta-band { text-align:center; padding:110px 0; border-top:1px solid var(--border); position:relative; }
@@ -353,6 +361,9 @@
         <a href="#instalacion">Instalación</a>
         <a href="#faq">Preguntas frecuentes</a>
         <a href="https://github.com/jelfancyyyyy/Enena-Modpack" target="_blank" rel="noopener">GitHub</a>
+        <div class="kofi-container" style="margin: 0; display: inline-flex;">
+          <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support me on Ko-fi', '#72a4f2', 'E3B624AP00');kofiwidget2.draw();</script>
+        </div>
       </div>
       <a href="https://github.com/jelfancyyyyy/Enena-Modpack/releases/download/untagged-4fe0347a6742f906bffe/Enena-Launcher-Setup-2.0.8.exe" target="_blank" rel="noopener" class="nav-cta">Descargar</a>
     </div>
@@ -378,6 +389,9 @@
           Descargar para Windows
         </a>
         <a href="#instalacion" class="btn btn-ghost">Ver guía de instalación</a>
+      </div>
+      <div class="kofi-container">
+        <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support me on Ko-fi', '#72a4f2', 'E3B624AP00');kofiwidget2.draw();</script>
       </div>
       <p class="hero-note">Windows 10/11 · Requiere Java 21+ (el launcher lo detecta o te avisa)</p>
     </div>
@@ -475,6 +489,10 @@
         <div class="faq-answer">Sí. Cada vez que abrís el launcher, revisa si hay una versión nueva y la instala sola en segundo plano. No necesitás volver a descargar nada manualmente.</div>
       </details>
     </div>
+
+    <div class="kofi-container" style="margin-top: 40px;">
+      <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support me on Ko-fi', '#72a4f2', 'E3B624AP00');kofiwidget2.draw();</script>
+    </div>
   </section>
 
   <section class="cta-band wrap reveal">
@@ -484,6 +502,9 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13"/><path d="M6 12l6 6 6-6"/><path d="M5 21h14"/></svg>
       Descargar Enena Launcher
     </a>
+    <div class="kofi-container">
+      <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support me on Ko-fi', '#72a4f2', 'E3B624AP00');kofiwidget2.draw();</script>
+    </div>
   </section>
 
   <footer>
@@ -573,8 +594,6 @@
     }
   }
 </script>
-
-<script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support me on Ko-fi', '#72a4f2', 'E3B624AP00');kofiwidget2.draw();</script>
 
 </body>
 </html>
